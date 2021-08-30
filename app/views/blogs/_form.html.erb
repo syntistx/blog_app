@@ -1,0 +1,38 @@
+<%= form_with(model: @blog, local: true) do |form| %>
+  <% if @blog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this friend from being saved:</h2>
+
+      <ul>
+      <% @blog.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br>
+  <div class="field form-group">
+    <%= form.text_field :title, class:'form-control', placeholder:'Title' %>
+  </div>
+  <br>
+  <div class="field form-group">
+    <%= form.text_field :short_detail, class:'form-control', placeholder:'Short Detail' %>
+  </div>
+  <br>
+  <div class="field form-group">
+    <%= form.text_area :description, class:'form-control', placeholder:'Description' %>
+  </div>
+  <br>
+  <% if @blog.blogimage.attached? %>
+    <p>Image: <%= image_tag (@blog.blogimage) %></p>
+    <br>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.file_field :blogimage, class:'form-control', placeholder:'Description' %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit class:'btn btn-secondary' %>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+<%= paginate @blogs %>
+
+<div class="d-flex p-2">
+  <% @blogs.each do |blog| %>
+    <div class="card m-3" style="width: 18rem;">
+      <%= image_tag (blog.blogimage) %>
+      <div class="card-body">
+        <h5 class="card-title"><%= blog.title %></h5>
+        <p class="card-text"><%= blog.short_detail %></p>
+        <%= link_to 'Show', blog, class:'btn btn-secondary' %>
+        <%= link_to 'Edit', edit_blog_path(blog), class:'btn btn-secondary' %>
+        <%= link_to 'Destroy', blog,  class:'btn btn-danger ', method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Destroy All', delete_all_path, model: :delete, class:'btn btn-danger ', data: { confirm: 'Are you sure?' } %>

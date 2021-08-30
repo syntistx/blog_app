@@ -1,0 +1,8 @@
+<div class= "container comment-section" >
+  <h4> <%= comment.author %> </h4>
+  <p> <%= comment.comment %>  </p>
+  <%= link_to 'Destroy Comment', [comment.blog, comment],  class:'btn btn-danger ', method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
+  <br><br>
+</div>
+
+<% render 'form' %>

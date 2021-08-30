@@ -1,0 +1,14 @@
+<%= form_with(model: [ @blog, @blog.comments.build ]) do |form| %>
+  <br>
+  <div class="field form-group">
+    <%= form.text_field :author, class:'form-control', placeholder:'Title' %>
+  </div>
+  <br>
+  <div class="field form-group">
+    <%= form.text_area :comment, class:'form-control', placeholder:'Short Detail' %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit class:'btn btn-secondary' %>
+  </div>
+<% end %>

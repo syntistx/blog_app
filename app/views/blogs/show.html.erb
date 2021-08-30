@@ -1,0 +1,26 @@
+<%= flash[:notice] %>
+
+<div class="jumbotron">
+  <%= image_tag (@blog.blogimage) %>
+  <h1 class="display-4">
+    <%= @blog.title %>
+  </h1>
+  <h5>Short Detail</h5>
+  <p class="lead">
+    <%= @blog.short_detail %>
+  </p>
+  <h5>Description</h5>
+  <p class="lead">
+    <%= @blog.description %>
+  </p>
+  <p class="lead">
+    <%= link_to 'Edit', edit_blog_path(@blog), class:'btn btn-secondary' %>
+    <%= link_to 'Back', blogs_path, class:'btn btn-secondary' %>
+  </p>
+  <% if @blog.comments.length != 0 %>
+    <%= new_world %>
+    <%= render @blog.comments %>
+  <% end %>
+  <h2>Add a comment:</h2>
+  <%= render 'comments/form' %>
+</div>
